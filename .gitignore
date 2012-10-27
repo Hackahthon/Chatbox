@@ -28,4 +28,4 @@ _ReSharper*/
 *.vssscc
 $tf*/
 src/packages/*
-src/.nuget/*
+src/.nuget/nuget.exe
