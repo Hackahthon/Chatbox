@@ -22,9 +22,9 @@ namespace Chatbox.Web
             //    consumerKey: "",
             //    consumerSecret: "");
 
-            //OAuthWebSecurity.RegisterFacebookClient(
-            //    appId: "",
-            //    appSecret: "");
+            OAuthWebSecurity.RegisterFacebookClient(
+                appId: "297318173701632",
+                appSecret: "8aa11ea66a70b5ad4fd7b0aa7d69ba59");
 
             OAuthWebSecurity.RegisterGoogleClient();
         }
