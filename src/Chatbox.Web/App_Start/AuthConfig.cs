@@ -15,9 +15,9 @@ namespace Chatbox.Web
             //    clientId: "",
             //    clientSecret: "");
 
-            //OAuthWebSecurity.RegisterTwitterClient(
-            //    consumerKey: "",
-            //    consumerSecret: "");
+            OAuthWebSecurity.RegisterTwitterClient(
+                consumerKey: "Bi1aDmdE4uftKsbWprnLA",
+                consumerSecret: "Ym0GTfRiLp6qs6GJMmfcxylqcwZiUaSbyigiD2LdA");
 
             OAuthWebSecurity.RegisterFacebookClient(
                 appId: "297318173701632",
