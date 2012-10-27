@@ -1,0 +1,73 @@
+﻿@model string
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h3>Console</h3>
+<div id="log"></div>
+<input type="text" id="text" disabled="disabled" value="Loading..." />
+
+<script src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.signalR-0.5.3.min.js")"></script>
+<script src="/signalr/hubs" type="text/javascript"></script>
+
+<script>
+    
+(function ($) {
+    "use strict";
+
+    var chat = $.connection.chatboxHub;
+    var myName = '@Context.User.Identity.Name';
+    var channelName = '@Model';
+    var log = $('#log');
+    var queue = [];
+    var reverseQueue = [];
+
+    chat.onJoined = function (name) {
+        log.append('<div> -- ' + name + ' has joined the conversation.</div>');
+        log.scrollTop(log[0].scrollHeight);
+    };
+
+    chat.onMessage = function (name, text) {
+        log.append('<div>' + name + '&gt; ' + text + '</div>');
+        log.scrollTop(log[0].scrollHeight);
+    };
+
+    $('#text').on('keypress', function (evt) {
+        if (evt.which == 13) {
+            var input = $(this);
+            var text = input.val();
+
+            queue.push(text);
+            chat.message(channelName, text);
+            input.val('');
+        }
+    });
+
+    $('#text').on('keyup', function (evt) {
+        if (evt.which == 38 && queue.length > 0) {
+            var input = $(this);
+            var text = queue.pop();
+            reverseQueue.push(text);
+            input.val(text);
+            evt.preventDefault();
+            evt.stopPropagation();
+        }
+        else if (evt.which == 40 && reverseQueue.length > 0) {
+            var input = $(this);
+            var text = reverseQueue.pop();
+            queue.push(text);
+            input.val(reverseQueue[reverseQueue.length-1]);
+            evt.preventDefault();
+            evt.stopPropagation();
+        }
+    });
+
+    $.connection.hub.start().done(function () {
+        $('#text').val('');
+        $('#text').removeAttr('disabled');
+        chat.join(channelName);
+    });
+})(jQuery);
+
+</script>
