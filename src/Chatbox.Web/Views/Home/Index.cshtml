@@ -17,6 +17,7 @@
 
     var chat = $.connection.chatboxHub;
     var myName = '@Context.User.Identity.Name';
+    var channelName = 'defaultChannel';
     var log = $('#log');
     var queue = [];
     var reverseQueue = [];
@@ -37,7 +38,7 @@
             var text = input.val();
 
             queue.push(text);
-            chat.message(text);
+            chat.message(channelName, text);
             input.val('');
         }
     });
@@ -64,7 +65,7 @@
     $.connection.hub.start().done(function () {
         $('#text').val('');
         $('#text').removeAttr('disabled');
-        chat.join();
+        chat.join(channelName);
     });
 })(jQuery);
 
