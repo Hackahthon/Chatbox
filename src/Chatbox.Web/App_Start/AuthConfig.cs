@@ -23,11 +23,8 @@ namespace Chatbox.Web
                 appId: "297318173701632",
                 appSecret: "8aa11ea66a70b5ad4fd7b0aa7d69ba59");
 
-            OAuthWebSecurity.RegisterClient(
-                new GithubOAuthClient.GithubClient("ab13bae77e85ba6454be", "5dd038ad8571884d92544baa2a06c112abc7c3f9")
-                );
-
             OAuthWebSecurity.RegisterGoogleClient();
+            OAuthWebSecurity.RegisterYahooClient();
         }
     }
 }
