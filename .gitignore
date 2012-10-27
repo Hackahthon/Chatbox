@@ -1,6 +1,5 @@
 Thumbs.db
 *.obj
-*.exe
 *.pdb
 *.user
 *.aps
@@ -28,4 +27,3 @@ _ReSharper*/
 *.vssscc
 $tf*/
 src/packages/*
-src/.nuget/nuget.exe
