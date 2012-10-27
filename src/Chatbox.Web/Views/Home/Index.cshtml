@@ -2,7 +2,11 @@
     ViewBag.Title = "Index";
 }
 
+@if (Request.IsAuthenticated) {
 <h2>Index</h2>
 <form action="/Home/Chat" method="get">
     <input type="text" id="channel" name="channel" /><button type="submit">Submit</button>
 </form>
+} else {
+<a id="big-login"></a>
+}
