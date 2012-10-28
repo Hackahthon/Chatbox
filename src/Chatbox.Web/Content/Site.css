@@ -150,9 +150,14 @@ footer {
 .user {
 	width: 103px;
 	height: 40px;
-	background: url(images/user_bg.png) top center no-repeat;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background: #aeaeae;
 	text-align: center;
 	line-height: 40px;
+	position: relative;
+	display: inline-block;
 }
 /*
 .chatline:nth-child(2n+1) .user {
@@ -162,9 +167,9 @@ footer {
 .bubble 
 {
 position: relative;
-width: 750px;
-height: 40px;
-padding: 0px;
+display: inline-block;
+max-width: 780px;
+padding: 10px;
 background: #A2FFFF;
 border: #ffffff solid 2px;
 -webkit-border-radius: 10px;
