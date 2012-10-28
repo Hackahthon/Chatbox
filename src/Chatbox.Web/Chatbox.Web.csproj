@@ -190,6 +190,8 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignalR\ChatboxHub.cs" />
+    <Compile Include="SignalR\HttpContextImpl.cs" />
+    <Compile Include="SignalR\IContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\bg.jpg" />
