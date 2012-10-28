@@ -35,7 +35,7 @@ New chat room: <input type="text" id="newChannelName" />
     var unreadMessagesInChannels = {};
     function addChannelTab(channelName) {
         $('#tabs ul').append("<li><a href='#tabs-" + channelName + "'>" + channelName + "</a></li>");
-        $('#tabs').append("<div id='tabs-" + channelName + "'><div id='log-" + channelName + "'></div></div>");
+        $('#tabs').append("<div id='tabs-" + channelName + "'><div id='log-" + channelName + "' class='log'></div></div>");
     }
     function closeTab(e) {
         var channelCount = 0;
@@ -116,10 +116,13 @@ New chat room: <input type="text" id="newChannelName" />
         if (evt.which == 13) {
             var input = $(this);
             var text = input.val();
-
-            queue.push(text);
-            chat.message(chatHost.activeChannel.name, text);
-            input.val('');
+            if (text[0] === ' ')
+                text += '&nbsp;';
+            if (text !== "") {
+                queue.push(text);
+                chat.message(chatHost.activeChannel.name, text);
+                input.val('');
+            }
         }
     });
 
