@@ -13,13 +13,13 @@ namespace Chatbox.Web.SignalR
         public Task Join(string channelName)
         {
             var name = GetUsername();
-            return Groups.Add(Context.ConnectionId, channelName).ContinueWith(t => Clients.onJoined(name));
+            return Groups.Add(Context.ConnectionId, channelName).ContinueWith(t => Clients.onJoined(name, channelName));
         }
 
         public void Message(string channelName, string content)
         {
             var user = GetUsername();
-            Clients[channelName].onMessage(user, content);
+            Clients[channelName].onMessage(user, content, channelName);
         }
 
         private string GetUsername()

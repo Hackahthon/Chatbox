@@ -2,22 +2,50 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
+New chat room: <input type="text" id="newChannelName" /> <input type="button" onclick="setupChannel($('#newChannelName').val());" />
 <h3>Console</h3>
-<div id="log"></div>
-<input type="text" id="text" disabled="disabled" value="Loading..." />
+<div id="tabs">
+    <ul>
+        
+    </ul>
+    
+</div>
 
-<script src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")"></script>
+<input type="text" id="text" disabled="disabled" value="Loading..." style="display:none;"/>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+
 <script src="@Url.Content("~/Scripts/jquery.signalR-0.5.3.min.js")"></script>
 <script src="/signalr/hubs" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/richContentFilters.js")"></script>
+<script src="@Url.Content("~/Scripts/ChatHost.js")"></script>
+<script src="@Url.Content("~/Scripts/ChatChannel.js")"></script>
 
 <script>
-    
+    function addChannelTab(channelName) {
+        $('#tabs ul').append("<li><a href='#tabs-" + channelName + "'>" + channelName + "</a></li>");
+        $('#tabs').append("<div id='tabs-" + channelName + "'><div id='log-" + channelName + "'></div></div>");
+    }
+    function setupChannel(channelName) {
+        chatHost.joinChannel(channelName);
+        addChannelTab(channelName);
+        $('#text').css("display","block");
+        $("#tabs").tabs(
+        {
+            show: true,
+
+            activate: function (event, ui) {
+                chatHost.switchChannel(ui.newTab.id);
+            }
+        });
+        $("#tabs").tabs("refresh");
+    }
+
 (function ($) {
     "use strict";
 
     var chat = $.connection.chatboxHub;
+
     var myName = '@Context.User.Identity.Name';
     var channelName = '@Model';
     var log = $('#log');
@@ -31,6 +59,21 @@
 
     chat.onMessage = function (name, text) {
         log.append('<div class="chatline"><div class="user">' + name + '</div><div class="message">' + applyFilters(text) + '</div></div>');
+        //var log = $('#log');
+    }
+
+    var queue = [];
+    var reverseQueue = [];
+
+    chat.onJoined = function (name, channelName) {
+        var log = $('#log-' + channelName);
+        log.append('<div> -- ' + name + ' has joined the conversation.</div>');
+        log.scrollTop(log[0].scrollHeight);
+    };
+
+    chat.onMessage = function (name, text, channelName) {
+        var log = $('#log-' + channelName);
+        log.append('<div>' + name + '&gt; ' + text + '</div>');
         log.scrollTop(log[0].scrollHeight);
     };
 
@@ -67,8 +110,19 @@
     $.connection.hub.start().done(function () {
         $('#text').val('');
         $('#text').removeAttr('disabled');
-        chat.join(channelName);
-    });
-})(jQuery);
 
+        chat.join(channelName);
+
+        @if(Model != null)
+        {
+            <text>setupChannel('@Model');</text>
+        }
+
+    });
+
+    
+    
+    
+})(jQuery);
+    
 </script>
