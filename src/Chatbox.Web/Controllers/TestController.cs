@@ -17,13 +17,13 @@ namespace Chatbox.Web.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Logon()
+        public ActionResult Logon(string a)
         {
             _Twitter.Logon(this.Request.Url, "http://chatbox.azurewebsites.net/");
             return RedirectToAction("Chat");
         }
 
-        public ActionResult Chat()
+        public ActionResult Logon()
         {
             return View(_Twitter.GetUserDetails());
         }
