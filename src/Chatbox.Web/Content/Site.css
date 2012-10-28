@@ -212,6 +212,26 @@ width: 0;
 z-index: 0;
 }
 
+.icsu {
+	width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    background: #424242;
+    display: inline-block;
+    font-size: 12px;
+    color: #ffffff;
+    margin: -10px 0 0 -10px;
+    text-align: center;
+    font-weight: bold;
+    border: thin solid #ffffff;
+    cursor:pointer;
+}
+.icsu:hover {
+	background: #ffffff;
+	color: #424242;
+}
+
 
 /* site title
 ----------------------------------------------------------*/
