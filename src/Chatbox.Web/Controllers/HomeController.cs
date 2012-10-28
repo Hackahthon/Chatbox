@@ -13,10 +13,6 @@ namespace Chatbox.Web.Controllers
             return View();
         }
 
-        public ActionResult Chat(string channel)
-        {
-            return View((object)channel);
-        }
 
         public ActionResult About()
         {
