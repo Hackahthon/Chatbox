@@ -8,6 +8,24 @@
         regexpr,
         "email_url");
 
+    regexpr[0] = /:\)\)/;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
+    regexpr[0] = /\=\)\)/;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
+    regexpr[0] = />:\)/;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
     regexpr[0] = /:\)/;
     inputString = parser(
         inputString,
@@ -31,6 +49,79 @@
         inputString,
         regexpr,
         "emoticon");
+
+    regexpr[0] = /<3/;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
+    regexpr[0] = /:\)/;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
+    regexpr[0] = /X\(/;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
+    regexpr[0] = /:">/;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
+    regexpr[0] = /:-</;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
+    regexpr[0] = /:-[o,O]/;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
+    regexpr[0] = /@-\)/;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
+    regexpr[0] = /\|-\)/;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
+    regexpr[0] = /:-\//;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
+    regexpr[0] = /B-\)/;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
+    regexpr[0] = /;\)\)/;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
+    regexpr[0] = /:-[s,S]/;
+    inputString = parser(
+        inputString,
+        regexpr,
+        "emoticon");
+
     return inputString;
 }
 
@@ -73,7 +164,55 @@ function parser(inputString, expression, parseType) {
                         toReturn += '<img src="/Content/Images/Emoticons/hee.gif" style="vertical-align: absmiddle" />';
                         break;
                     case ":P":
+                        toReturn += '<img src="/Content/Images/Emoticons/tongue.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case "<3":
+                        toReturn += '<img src="/Content/Images/Emoticons/chu.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case "/:)":
+                        toReturn += '<img src="/Content/Images/Emoticons/huh.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case "X(":
+                        toReturn += '<img src="/Content/Images/Emoticons/pissed.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case ":\">":
+                        toReturn += '<img src="/Content/Images/Emoticons/blush.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case ":-<":
+                        toReturn += '<img src="/Content/Images/Emoticons/gasp.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case ":-O":
+                        toReturn += '<img src="/Content/Images/Emoticons/ooo.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case "@-)":
+                        toReturn += '<img src="/Content/Images/Emoticons/gya.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case "|-)":
+                        toReturn += '<img src="/Content/Images/Emoticons/zzz.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case ":-/":
+                        toReturn += '<img src="/Content/Images/Emoticons/whut.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case ":-\"":
+                        toReturn += '<img src="/Content/Images/Emoticons/whistle.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case "B-)":
+                        toReturn += '<img src="/Content/Images/Emoticons/shades.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case "=))":
                         toReturn += '<img src="/Content/Images/Emoticons/lol.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case ";))":
+                        toReturn += '<img src="/Content/Images/Emoticons/heehee.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case ":))":
+                        toReturn += '<img src="/Content/Images/Emoticons/eheehe.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case ">:)":
+                        toReturn += '<img src="/Content/Images/Emoticons/evil.gif" style="vertical-align: absmiddle" />';
+                        break;
+                    case ":-S":
+                        toReturn += '<img src="/Content/Images/Emoticons/eh.gif" style="vertical-align: absmiddle" />';
                         break;
                 }
                 break;
