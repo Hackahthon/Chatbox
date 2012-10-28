@@ -249,6 +249,9 @@ z-index: 0;
     color: #c8c8c8;
     outline: none;
     text-decoration: none;
+    width: 434px;
+    height: 216px;
+    display: inline-block;
 }
 
 
