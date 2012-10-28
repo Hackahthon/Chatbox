@@ -140,11 +140,20 @@ footer {
 #log div {
 	width: 80%;
 	height: 92px;
+	margin: 0 auto;
 }
-#log div:nth-child(2n) {
+#log div.user:nth-child(2n) {
+	float: left;
+}
+#log div.user:nth-child(2n+1) {
+	float: right;
+}
+#log div.message:nth-child(2n) {
+	float: left;
 	background: blue;
 }
-#log div:nth-child(2n+1) {
+#log div.message:nth-child(2n+1) {
+	float: right;
 	background: olive;
 }
 
