@@ -149,26 +149,55 @@ footer {
 }
 .user {
 	width: 103px;
-	height: 92px;
-	float: left;
+	height: 40px;
 	background: url(images/user_bg.png) top center no-repeat;
 	text-align: center;
-	line-height: 90px;
+	line-height: 40px;
 }
+/*
 .chatline:nth-child(2n+1) .user {
 	float: right;
 }
-.message {
-	width: 765px;
-	height: 72px;
-	float: left;
-	background: url(images/blue_chat_bg.png) top center no-repeat;
-	padding: 10px 10px 10px 30px;
+*/
+.bubble 
+{
+position: relative;
+width: 750px;
+height: 40px;
+padding: 0px;
+background: #A2FFFF;
+border: #ffffff solid 2px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
 }
-.chatline:nth-child(2n+1) .message {
-	float: right;
-	background: url(images/orange_chat_bg.png) top center no-repeat;
-	padding: 10px 30px 10px 10px;
+
+.bubble:after 
+{
+content: "";
+position: absolute;
+top: 17px;
+left: -9px;
+border-style: solid;
+border-width: 5px 9px 5px 0;
+border-color: transparent #A2FFFF;
+display: block;
+width: 0;
+z-index: 1;
+}
+
+.bubble:before 
+{
+content: "";
+position: absolute;
+top: 16px;
+left: -12px;
+border-style: solid;
+border-width: 6px 10px 6px 0;
+border-color: transparent #ffffff;
+display: block;
+width: 0;
+z-index: 0;
 }
 
 
