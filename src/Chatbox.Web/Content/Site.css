@@ -147,6 +147,8 @@ footer {
 	height: 92px;
 	float: left;
 	background: url(images/user_bg.png) top center no-repeat;
+	text-align: center;
+	line-height: 90px;
 }
 #log .chatline:nth-child(2n+1) .user {
 	float: right;
@@ -160,7 +162,7 @@ footer {
 }
 #log .chatline:nth-child(2n+1) .message {
 	float: right;
-	background: url(images/orange_chat_bg) top center no-repeat;
+	background: url(images/orange_chat_bg.png) top center no-repeat;
 	padding: 10px 20px 10px 10px;
 }
 
