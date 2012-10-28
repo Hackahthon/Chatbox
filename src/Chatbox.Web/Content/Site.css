@@ -123,9 +123,11 @@ h5, h6 {
         background: url("../Images/heroAccent.png") no-repeat;
     }
 
+/*
 header .content-wrapper {
     padding-top: 20px; 
 }
+*/
 
 footer {
     clear: both;
