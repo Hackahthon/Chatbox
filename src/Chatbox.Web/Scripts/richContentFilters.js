@@ -40,7 +40,7 @@ function parser(inputString, expression, parseType) {
         var initialPatternLength = foundPattern[0].length;
         switch (parseType) {
             case "url":
-                if (foundPattern[0].indexOf("http://") < 0)
+                if (foundPattern[0].indexOf("http://") < 0 || foundPattern[0].indexOf("https://") < 0)
                     foundPattern[0] = "http://" + foundPattern[0];
             
                 toReturn += '<a href="' + foundPattern[0] + '" target="_blank">' + foundPattern[0] + '</a>';
