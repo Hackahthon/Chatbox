@@ -8,11 +8,6 @@
         regexpr,
         "email_url");
 
-    //inputString = parser(
-    //    inputString,
-    //    ,
-    //    "url");
-
     regexpr[0] = /:\)/;
     inputString = parser(
         inputString,
@@ -55,14 +50,6 @@ function parser(inputString, expression, parseType) {
         var initialPatternLength1 = foundPattern1 != null ? foundPattern1[0].length : 0;
         var isUrl = true;
         switch (parseType) {
-            case "url":
-                if (foundPattern[0].indexOf("http://") < 0 && foundPattern[0].indexOf("https://") < 0)
-                    foundPattern[0] = "http://" + foundPattern[0];
-            
-                toReturn += '<a href="' + foundPattern[0] + '" target="_blank">' + foundPattern[0] + '</a>';
-                break;
-            case "email":
-                toReturn += '<a href="mailto:' + foundPattern[0] + '">' + foundPattern[0] + '</a>';
             case "email_url":
                 if (foundPattern1 != null && foundPattern1[0].indexOf("@") > -1) {
                     isUrl = false;
@@ -74,14 +61,6 @@ function parser(inputString, expression, parseType) {
                     toReturn += '<a href="' + foundPattern[0] + '" target="_blank">' + foundPattern[0] + '</a>';
                 }
                 break;
-            //case "url":
-            //    if (foundPattern[0].indexOf("@") < 0) {
-            //        if (foundPattern[0].indexOf("http://") < 0 && foundPattern[0].indexOf("https://") < 0)
-            //            foundPattern[0] = "http://" + foundPattern[0];
-
-            //        toReturn += '<a href="' + foundPattern[0] + '" target="_blank">' + foundPattern[0] + '</a>';
-            //    }
-            //    break;
             case "emoticon":
                 switch (foundPattern[0].toUpperCase()) {
                     case ":)":
