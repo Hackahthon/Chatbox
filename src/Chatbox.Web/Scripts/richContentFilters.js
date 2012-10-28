@@ -20,7 +20,7 @@ function urlParser(inputString) {
         if (foundUrl[0].indexOf("http://") < 0)
             foundUrl[0] = "http://" + foundUrl[0];
             
-        toReturn += '<a href="' + foundUrl[0] + '">' + foundUrl[0] + '</a>';
+        toReturn += '<a href="' + foundUrl[0] + '" target="_blank">' + foundUrl[0] + '</a>';
         inputString = inputString.substr(initialUrlLength, inputString.length - initialUrlLength);
 
         foundIndex = inputString.search(regex);
