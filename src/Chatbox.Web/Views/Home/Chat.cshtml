@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Home Page";
 }
-New chat room: <input type="text" id="newChannelName" /> <input type="button" onclick="setupChannel($('#newChannelName').val());" />
+New chat room: <input type="text" id="newChannelName" /> <input type="button" onclick="newChannelClick();" />
 <h3>Console</h3>
 <div id="tabs">
     <ul>
@@ -24,6 +24,12 @@ New chat room: <input type="text" id="newChannelName" /> <input type="button" on
 <script src="@Url.Content("~/Scripts/keyboard.js")"></script>
 
 <script>
+    function newChannelClick() {
+        var channelName = $('#newChannelName').val();
+        setupChannel(channelName);
+        $("#tabs").tabs('select', channelName);
+    }
+    var unreadMessagesInChannels = {};
     function addChannelTab(channelName) {
         $('#tabs ul').append("<li><a href='#tabs-" + channelName + "'>" + channelName + "</a></li>");
         $('#tabs').append("<div id='tabs-" + channelName + "'><div id='log-" + channelName + "'></div></div>");
@@ -37,7 +43,10 @@ New chat room: <input type="text" id="newChannelName" /> <input type="button" on
             show: true,
 
             activate: function (event, ui) {
-                chatHost.switchChannel($(ui.newPanel).attr('id').replace("tabs-", ""));
+                var activatedChannelName = $(ui.newPanel).attr('id').replace("tabs-", "");
+                chatHost.switchChannel(activatedChannelName);
+                unreadMessagesInChannels[activatedChannelName] = 0;
+                $("a[href='#tabs-" + activatedChannelName + "']").text(activatedChannelName);
             }
         });
         $("#tabs").tabs("refresh");
@@ -47,7 +56,7 @@ New chat room: <input type="text" id="newChannelName" /> <input type="button" on
     "use strict";
 
     var chat = $.connection.chatboxHub;
-
+    
     var myName = '@Context.User.Identity.Name';
     var channelName = '@Model';
     var log = $('#log');
@@ -77,6 +86,14 @@ New chat room: <input type="text" id="newChannelName" /> <input type="button" on
         var log = $('#log-' + channelName);
         log.append('<div class="chatline"><div class="user">' + name + '</div><div class="bubble">' + text + '</div></div>');
         log.scrollTop(log[0].scrollHeight);
+        if ((unreadMessagesInChannels[channelName] == null || unreadMessagesInChannels[channelName] == undefined) && name != myName) {
+            unreadMessagesInChannels[channelName] = 1;
+        }
+        else if (name != myName)
+            unreadMessagesInChannels[channelName]++;
+
+        if (unreadMessagesInChannels[channelName] > 0 && chatHost.activeChannel.name != channelName)
+            $("a[href='#tabs-" + channelName + "']").text(channelName +" (" +unreadMessagesInChannels[channelName]+")");
     };
 
     $('#text').on('keypress', function (evt) {
