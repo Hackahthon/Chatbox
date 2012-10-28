@@ -98,6 +98,7 @@ h5, h6 {
     border-radius: 0px 0px 10px 10px;
     position: absolute;
     top: 0;
+    padding: 10px;
 }
 .content-wrapper {
     margin: 0 auto;
@@ -136,6 +137,17 @@ footer {
     height: 100px;
 }
 
+#log div {
+	width: 80%;
+	height: 92px;
+}
+#log div:nth-child(2n) {
+	background: blue;
+}
+#log div:nth-child(2n+1) {
+	background: olive;
+}
+
 
 /* site title
 ----------------------------------------------------------*/
@@ -146,14 +158,12 @@ footer {
     margin: 0;
 }
 
-/*
 .site-title a, .site-title a:hover, .site-title a:active {
     background: none;
     color: #c8c8c8;
     outline: none;
     text-decoration: none;
 }
-*/
 
 
 /* login
