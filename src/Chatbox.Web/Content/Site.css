@@ -137,18 +137,22 @@ footer {
     height: 100px;
 }
 
-#log div {
+#log div.chatline {
 	width: 80%;
 	height: 92px;
 	margin: 0 auto;
 }
-#log div.user:nth-child(2n) {
+#log div.user {
+	width: 103px;
+	height: 92px;
 	float: left;
 }
 #log div.user:nth-child(2n+1) {
 	float: right;
 }
-#log div.message:nth-child(2n) {
+#log div.message {
+	width: 805px;
+	height: 92px;
 	float: left;
 	background: blue;
 }

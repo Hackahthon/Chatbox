@@ -29,7 +29,7 @@
     };
 
     chat.onMessage = function (name, text) {
-        log.append('<div><div class="user">' + name + '</div><div class="message">' + text + '</div></div>');
+        log.append('<div class="chatline"><div class="user">' + name + '</div><div class="message">' + text + '</div></div>');
         log.scrollTop(log[0].scrollHeight);
     };
 
