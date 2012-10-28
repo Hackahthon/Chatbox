@@ -17,7 +17,8 @@
     var chatHost = {
         joinChannel: join,
         activeChannel: null,
-        switchChannel: switchChannel
+        switchChannel: switchChannel,
+        channels: channels
     };
 
     win.chatHost = chatHost;
