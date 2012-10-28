@@ -59,19 +59,9 @@ New chat room: <input type="text" id="newChannelName" /> <input type="button" on
     
     var myName = '@Context.User.Identity.Name';
     var channelName = '@Model';
-    var log = $('#log');
     var queue = [];
     var reverseQueue = [];
 
-    chat.onJoined = function (name) {
-        log.append('<span> -- ' + name + ' has joined the conversation.</span>');
-        log.scrollTop(log[0].scrollHeight);
-    };
-
-    chat.onMessage = function (name, text) {
-        log.append('<div class="chatline"><div class="user">' + name + '</div><div class="bubble">' + applyFilters(text) + '</div></div>');
-        //var log = $('#log');
-    }
 
     var queue = [];
     var reverseQueue = [];
@@ -84,7 +74,7 @@ New chat room: <input type="text" id="newChannelName" /> <input type="button" on
 
     chat.onMessage = function (name, text, channelName) {
         var log = $('#log-' + channelName);
-        log.append('<div class="chatline"><div class="user">' + name + '</div><div class="bubble">' + text + '</div></div>');
+        log.append('<div class="chatline"><div class="user">' + name + '</div><div class="bubble">' + applyFilters(text) + '</div></div>');
         log.scrollTop(log[0].scrollHeight);
         if ((unreadMessagesInChannels[channelName] == null || unreadMessagesInChannels[channelName] == undefined) && name != myName) {
             unreadMessagesInChannels[channelName] = 1;
