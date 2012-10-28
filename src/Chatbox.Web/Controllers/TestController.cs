@@ -23,7 +23,7 @@ namespace Chatbox.Web.Controllers
             return RedirectToAction("Chat");
         }
 
-        public ActionResult Logon()
+        public ActionResult Chat()
         {
             return View(_Twitter.GetUserDetails());
         }
