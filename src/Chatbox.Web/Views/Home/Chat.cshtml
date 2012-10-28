@@ -35,7 +35,7 @@ New chat room: <input type="text" id="newChannelName" /> <input type="button" on
             show: true,
 
             activate: function (event, ui) {
-                chatHost.switchChannel(ui.newTab.id);
+                chatHost.switchChannel($(ui.newPanel).attr('id').replace("tabs-", ""));
             }
         });
         $("#tabs").tabs("refresh");
@@ -83,7 +83,7 @@ New chat room: <input type="text" id="newChannelName" /> <input type="button" on
             var text = input.val();
 
             queue.push(text);
-            chat.message(channelName, text);
+            chat.message(chatHost.activeChannel.name, text);
             input.val('');
         }
     });
