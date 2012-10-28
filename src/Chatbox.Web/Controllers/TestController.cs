@@ -10,6 +10,7 @@ namespace Chatbox.Web.Controllers
     {
         //
         // GET: /Test/
+        ChatBox.Domain.Concrete.Twitter _Twitter = new ChatBox.Domain.Concrete.Twitter();
 
         public ActionResult Index()
         {
@@ -18,8 +19,13 @@ namespace Chatbox.Web.Controllers
         [HttpPost]
         public ActionResult Logon()
         {
-            ChatBox.Domain.Concrete.Twitter twitter = new ChatBox.Domain.Concrete.Twitter();
-            return Redirect(twitter.Logon(this.Request.Url, "http://chatbox.azurewebsites.net/"));
+            _Twitter.Logon(this.Request.Url, "http://chatbox.azurewebsites.net/");
+            return RedirectToAction("Chat");
+        }
+
+        public ActionResult Chat()
+        {
+            return View(_Twitter.GetUserDetails());
         }
     }
 }

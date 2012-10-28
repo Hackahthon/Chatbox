@@ -25,5 +25,11 @@ namespace ChatBox.Domain.Concrete
 
             return OAuthUtility.BuildAuthorizationUri(token, true).ToString();
         }
+
+        public string GetUserDetails()
+        {
+            TwitterResponse<TwitterUser> userResponse = TwitterUser.Show("adrianeduard1");
+            return userResponse.RequestUrl;
+        }
     }
 }
