@@ -10,6 +10,7 @@
 <script src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")"></script>
 <script src="@Url.Content("~/Scripts/jquery.signalR-0.5.3.min.js")"></script>
 <script src="/signalr/hubs" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/richContentFilters.js")"></script>
 
 <script>
     
@@ -29,7 +30,7 @@
     };
 
     chat.onMessage = function (name, text) {
-        log.append('<div class="chatline"><div class="user">' + name + '</div><div class="message">' + text + '</div></div>');
+        log.append('<div class="chatline"><div class="user">' + name + '</div><div class="message">' + applyFilters(text) + '</div></div>');
         log.scrollTop(log[0].scrollHeight);
     };
 
