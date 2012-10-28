@@ -8,5 +8,5 @@
     <input type="text" id="channel" name="channel" /><button type="submit">Submit</button>
 </form>
 } else {
-<a id="big-login"></a>
+<div id="big-login" >@Html.ActionLink("", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</div>
 }

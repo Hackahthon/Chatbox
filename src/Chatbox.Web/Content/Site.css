@@ -187,7 +187,7 @@ footer {
         list-style: none;
     }
     
-#big-login {
+#big-login a {
 	width: 370px;
 	height: 73px;
 	display: block;
