@@ -26,9 +26,10 @@ New chat room: <input type="text" id="newChannelName" />
 <script>
     function newChannelClick() {
         var channelName = $('#newChannelName').val();
-        if (chatHost.channels[channelName] === undefined ) {
-            setupChannel(escape(channelName));
-            $("#tabs").tabs('select', escape(channelName));
+        if (chatHost.channels[channelName] === undefined) {
+            channelName = channelName.replace(/[^A-z0-9\-_]/,'_');
+            setupChannel(channelName);
+            $("#tabs").tabs('select', channelName);
         }
     }
     var unreadMessagesInChannels = {};
