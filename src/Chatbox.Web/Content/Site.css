@@ -147,7 +147,7 @@ footer {
 	height: 92px;
 	float: left;
 }
-#log .user:nth-child(2n+1) {
+#log .chatline:nth-child(2n+1) .user {
 	float: right;
 }
 #log .message {
@@ -156,7 +156,7 @@ footer {
 	float: left;
 	background: blue;
 }
-#log .message:nth-child(2n+1) {
+#log .chatline:nth-child(2n+1) .message {
 	float: right;
 	background: olive;
 }
