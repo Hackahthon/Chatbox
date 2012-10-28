@@ -146,19 +146,22 @@ footer {
 	width: 103px;
 	height: 92px;
 	float: left;
+	background: url(images/user_bg.png) top center no-repeat;
 }
 #log .chatline:nth-child(2n+1) .user {
 	float: right;
 }
 #log .message {
-	width: 805px;
-	height: 92px;
+	width: 775px;
+	height: 72px;
 	float: left;
-	background: blue;
+	background: url(images/blue_chat_bg.png) top center no-repeat;
+	padding: 10px 10px 10px 20px;
 }
 #log .chatline:nth-child(2n+1) .message {
 	float: right;
-	background: olive;
+	background: url(images/orange_chat_bg) top center no-repeat;
+	padding: 10px 20px 10px 10px;
 }
 
 
