@@ -187,11 +187,18 @@ footer {
         list-style: none;
     }
     
-#big-login a {
+#big-login {
 	width: 370px;
 	height: 73px;
 	display: block;
 	background: url(images/biglogin.png) top center no-repeat;
+}
+#laptop {
+	width: 366px;
+	height: 242px;
+	background: url(images/laptop.png) top center no-repeat;
+	float: right;
+	margin: -25px 50px 0 0;
 }
 
 
